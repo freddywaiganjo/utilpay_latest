@@ -1,0 +1,46 @@
+# UserType
+UserType:
+ - !!models.UserType
+      userType: Web
+      isActive:  1
+
+ - !!models.UserType
+       userType: terminal
+       isActive:  1
+
+# UserGroup
+UserGroup:
+  - !!models.UserGroup
+       userTypeID: 1
+       userGroup: admin
+       isActive:   1
+
+  - !!models.UserGroup
+       userTypeID: 2
+       userGroup: user
+       isActive:   1
+
+# UserMaster
+UserMst:
+  - !!models.UserMst
+        UserName: admin
+        FirstName : Alex
+        LastName: Waiganjo
+        OtherName: Moses
+        MobileNo: 0708395926
+        Password: 1234
+        userTypeID: 1
+        userGroupID:  1
+        isActive:   1
+
+  - !!models.UserMst
+        UserName: admin2
+        FirstName : Alex2
+        LastName: Waiganjo
+        OtherName: Moses
+        MobileNo: 0708395926
+        Password: 1234
+        userTypeID: 2
+        userGroupID:  1
+        isActive:   1
+

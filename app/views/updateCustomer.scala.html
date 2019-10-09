@@ -1,0 +1,59 @@
+@(message: String, customersMst: CustomersMst, menus: List[Menus])
+@main("",menus) {
+
+    <link href="@routes.Assets.at("plugins/Parsley/parsley.css")" rel="stylesheet">
+    <script src="@routes.Assets.at("plugins/Parsley/parsley.js")"></script>
+    <div class=" panel-heading" style="background-color: #cfcfea">
+        <strong>
+            <span class="glyphicon glyphicon-th"></span>
+            <span class="col-form-label">Consumption</span>
+        </strong>
+    </div>
+    <br>
+    <div class="tab-pane" id="settings">
+
+        <form  class="form-horizontal" method="post" action="@routes.Payments.updateCustomer(customersMst.cid)">
+            <div class="form-group">
+                <label for="account" class="col-sm-2 control-label">Account:</label>
+
+                <div class="col-sm-10">
+                    <input id="userForm" type="text"  data-parsley class="form-control" name="account" placeholder="account number" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="prevreading" class="col-sm-2 control-label">Previous Reading:</label>
+
+                <div class="col-sm-10">
+                    <input id="userForm" type="text"  data-parsley class="form-control" name="prevreading" placeholder="Previous reading" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="currreading" class="col-sm-2 control-label">Current Reading:</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="currreading" placeholder="Current Reading" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="active" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-success"  style="width: 100px">
+                        <span>Query</span>
+                    </button>
+                    @*<form method="get" action="@routes.UserMaster.userList()">*@
+                    <button type="button"  class="btn btn-warning" style="width: 100px">
+                        <span>Clear</span>
+                    </button>
+                    @*</form>*@
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+            $('#userForm').parsley(options.maximumInputLength=3);
+    </script>
+
+}
+

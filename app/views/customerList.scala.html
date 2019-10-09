@@ -1,0 +1,52 @@
+@(messages: String, customersMst: CustomersMst, menus: List[Menus])
+@main("",menus){
+
+    <script type="text/javascript">
+            $(document).ready(function() {
+                $('#example').dataTable( {
+                    "processing": true,
+                    "serverSide": true,
+                    "ajax": "@routes.Payments.customerList()",
+                    "aoColumns": [
+                        { "mDataProp": "0" },
+                        { "mDataProp": "1" },
+                        { "mDataProp": "2" },
+                        { "mDataProp": "3" },
+                        { "mDataProp": "4" },
+                        { "mDataProp": "5" },
+                        {
+                            "mDataProp": null,
+                            "mRender": function(obj) {
+                                var sReturn = obj.cid;
+                                var editButton = "<a class='hidden-xs' href='/custdtl/?id="+sReturn+"' id='cedit' style='float: center'   data-title="+sReturn+"><button class='btn btn-primary btn-xs'  style='width: 50px; height: 22px;' value='click'><i class='fa fa-pencil' ></i></button> </a>";
+                                return  editButton;
+
+                            }
+                        }
+                    ]
+
+                } );
+            } );
+    </script>
+    <div>
+        <form method="get" action="@routes.Payments.createCustomerPG()">
+            <button type="submit"  data-toggle="tooltip" title="New Customer" class="btn btn-success" style="width: 100px;float: right">
+                <span >Add New</span>
+            </button>
+        </form>
+        <br><br><br>
+        <table id="example" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID NO</th>
+                    <th>Name</th>
+                    <th>account</th>
+                    <th>MeterNo</th>
+                    <th>PlotNo</th>
+                    <th>Mobile</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+}

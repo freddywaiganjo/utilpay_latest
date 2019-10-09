@@ -1,0 +1,109 @@
+@(message: String, menus: List[Menus])
+@main("",menus) {
+
+    <link href="@routes.Assets.at("plugins/Parsley/parsley.css")" rel="stylesheet">
+    <script src="@routes.Assets.at("plugins/Parsley/parsley.js")"></script>
+    <div class=" panel-heading" style="background-color: #cfcfea">
+        <strong>
+            <span class="glyphicon glyphicon-th"></span>
+            <span class="col-form-label">Create New Member</span>
+        </strong>
+    </div>
+    <br>
+    <div class="tab-pane" id="settings">
+
+        <form  class="form-horizontal" method="post" action="@routes.Payments.createCustomer()">
+            <div class="form-group">
+                <label for="fname" class="col-sm-2 control-label">FirstName</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="fname" placeholder="FirstName" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lname" class="col-sm-2 control-label">LastName</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="lname" placeholder="LastName" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="oname" class="col-sm-2 control-label">Other Name</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="oname" placeholder="Other Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="idno" class="col-sm-2 control-label">ID NO.</label>
+
+                <div class="col-sm-10">
+                    <input id="idno" type="text"  data-parsley class="form-control" name="idno" placeholder="id number" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone" class="col-sm-2 control-label">Mobile</label>
+
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" name="phone" placeholder="Mobile" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="account" class="col-sm-2 control-label">Account</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="account" placeholder="Account" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="meterno" class="col-sm-2 control-label">Meter No.</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="meterno" placeholder="meter no" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="plotno" class="col-sm-2 control-label">Plot No.</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="plotno" placeholder="Plot No" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="regfee" class="col-sm-2 control-label">Regestration Fee </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="regfee" placeholder="Registration Fee" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="active" class="col-sm-2 control-label">Active</label>
+                <div class="col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input class="form-check-input" type="checkbox" value="1" name="active">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="active" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-success"  style="width: 100px">
+                        <span>Save</span>
+                    </button>
+                    @*<form method="get" action="@routes.Payments.createCustomer()">*@
+                    <button type="button"  class="btn btn-warning" style="width: 100px">
+                        <span>Cancel</span>
+                    </button>
+                    @*</form>*@
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+            $('#userForm').parsley(options.maximumInputLength=3);
+    </script>
+
+
+}
+

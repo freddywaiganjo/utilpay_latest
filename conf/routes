@@ -1,0 +1,20 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                               controllers.Application.index()
+GET        /login                          controllers.Application.login()
+POST       /authenticateUser                controllers.Application.authenticateUser()
+GET        /rcvpayments                     controllers.Payments.paymentPG()
+GET        /custdtl/                        controllers.Payments.updateCustomerPG(id:Long)
+POST       /updatecust                     controllers.Payments.updateCustomer(id:Long)
+GET        /listcustomer                        controllers.Payments.customerListPage()
+GET        /createcustpg                        controllers.Payments.createCustomerPG()
+POST       /createcust                        controllers.Payments.createCustomer()
+GET        /listcustt                       controllers.Payments.customerList()
+GET         /logout                   controllers.Application.endSession()
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
